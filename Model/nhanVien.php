@@ -23,7 +23,7 @@ function deleteorsua($id , $nameStaff = null , $ageStaff=null)
 {
     if((!empty($nameStaff)) && (!empty($ageStaff))) {
         $sql = "UPDATE `staff` SET `nameStaff`='$nameStaff',`ageStaff`='$ageStaff' WHERE id=".$id;
-var_dump($sql);
+        var_dump($sql);
     }
     else {
         $sql = "DELETE FROM `staff` WHERE id=".$id;

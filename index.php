@@ -1,4 +1,9 @@
 <?php
+function dd($data) {
+    echo "<pre>";
+    print_r($data);
+    echo "</pre>";
+}
 $url = isset($_GET['url']) == true ? $_GET['url'] : "/";
 switch ($url) {
     case '/':
