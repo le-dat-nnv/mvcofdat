@@ -5,6 +5,14 @@ class people {
     public $year;
     public $email;
     public $sdt;
+    public function __construct($hoten , $email , $address , $sdt , $year)
+    {
+        $this->hoten = $hoten;
+        $this->email = $email;
+        $this->address = $address;
+        $this->sdt = $sdt;
+        $this->year = $year;
+    }
 
     /**
      * @param mixed $year
@@ -61,6 +69,13 @@ class student extends people {
     public $diemToan;
     public $diemLy;
     public $diemHoa;
+public function __construct($hoten, $email, $address, $sdt, $year , $toan , $hoa , $ly)
+{
+    parent::__construct($hoten, $email, $address, $sdt, $year);
+    $this->diemToan = $toan;
+    $this->diemHoa=$hoa;
+    $this->diemLy=$ly;
+}
 
     /**
      * @param mixed $diemHoa
@@ -119,15 +134,15 @@ class giangVien {
     public function getGiangVien() {
     }
 }
-$student = new student();
-$student->setYear('2003');
-$student->setAddress('vietname');
-$student->setSdt('0123456789');
-$student->setHoten('le huy dat');
-$student->setEmail('lehuydat02974@gamil.com');
+$student = new student('lê huy đạt' , 'ledat@fpt.edu/.vn' , 'thanh hóa việt nam ' , '02890147' , '2003' , '9' , '7' , '9');
+//$student->setYear('2003');
+//$student->setAddress('vietname');
+//$student->setSdt('0123456789');
+//$student->setHoten('le huy dat');
+//$student->setEmail('lehuydat02974@gamil.com');
 $student->getInformation();
-$student->setDiemHoa('7');
-$student->setDiemLy('5');
-$student->setDiemToan('8');
+//$student->setDiemHoa('7');
+//$student->setDiemLy('5');
+//$student->setDiemToan('8');
 $student->diemTb();
 $student->getStudent();

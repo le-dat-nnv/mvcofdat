@@ -8,6 +8,14 @@ class people
     public $tay;
     public $mat;
     public $mui;
+    public function __construct($chan , $tay , $mat , $mui)
+    {
+        $this->chan=$chan;
+        $this->tay=$tay;
+        $this->mat=$mat;
+        $this->mui=$mui;
+    }
+
     public function eat() {
         echo "the people is eat mouth" . "</br>";
     }
