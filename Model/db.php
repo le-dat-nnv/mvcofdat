@@ -5,28 +5,37 @@ const DBUSER = "root";
 const DBPASS = "";
 const DBCHARSET = "utf8";
 const DBHOST = "127.0.0.1";
+class db
+{
+    public $connect;
+    public function __construct()
+    {
+        $this->connect =$this->getConnect();
+    }
 
 // tạo kết nối từ project php sang mysql
-function getConnect()
-{
-    $connect = new PDO("mysql:host=" . DBHOST
-        . ";dbname=" . DBNAME
-        . ";charset=" . DBCHARSET,
-        DBUSER,
-        DBPASS
-    );
-    return $connect;
-}
+    function getConnect()
+    {
+        $connect = new PDO("mysql:host=" . DBHOST
+            . ";dbname=" . DBNAME
+            . ";charset=" . DBCHARSET,
+            DBUSER,
+            DBPASS
+        );
+        return $connect;
+    }
 
 // neu ko truyen gi thi se dung cho cau lenh select
 // neu truyen false thi danh cho cau lenh them sua
-function getData($query, $getAll = true){
-    $conn = getConnect();
+    function getData($query, $getAll = true)
+    {
+//        $conn = getConnect();
 
-    $stmt = $conn->prepare($query);
-    $stmt->execute();
-    if ($getAll) {
-        return $stmt->fetchAll();
+        $stmt = $this->connect->prepare($query);
+        $stmt->execute();
+        if ($getAll) {
+            return $stmt->fetchAll();
+        }
+        return $stmt->fetch();
     }
-    return $stmt->fetch();
 }
